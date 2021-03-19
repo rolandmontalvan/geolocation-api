@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        if ("geolocation" in navigator) {
+            console.log('geolocation is available');
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log(position.coords.latitude, position.coords.longitude);
+                const lat = position.coords.latitude
+                document.getElementById('latitude').textContent = lat;
+                const long = position.coords.longitude
+                document.getElementById('longitude').textContent = long;
+
+            });
+        } else {
+            console.log('geolocation is not available');
+        }
+    </script>
+    <h1>
+        Data Selfie App
+    </h1>
+    <p>
+        Latitude: <span id="latitude">&deg;</span> <br />
+        Longitude: <span id="longitude">&deg;</span>
+    </p>
+
+</body>
+
+</html>
